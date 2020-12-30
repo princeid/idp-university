@@ -42,7 +42,7 @@ function university_post_types() {
     // Program Post Type
     register_post_type('program', [
         'show_in_rest' => true,
-        'supports' => ['title', 'editor'],
+        'supports' => ['title'], // remove 'editor' so wordpress won't use the main default content field for programs
         'rewrite' => ['slug' => 'programs'],
         'has_archive' => true,
         'public' => true,

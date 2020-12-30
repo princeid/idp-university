@@ -29,5 +29,5 @@ themes/twenty*/
 
 /.idea/
 
-
+# ignore functions.php until you remove api key from the file
 functions.php

@@ -16,7 +16,7 @@ while (have_posts()) {
             </p>
         </div>
 
-        <div class="generic-content"> <?php the_content(); ?></div>
+        <div class="generic-content"> <?php the_field('main_body_content'); ?></div>
 
 
         <?php
@@ -32,7 +32,7 @@ while (have_posts()) {
                 [
                     'key' => 'related_programs',
                     'compare' => 'LIKE',
-                    'value' => '"' . get_the_ID() . '"',
+                    'value' => '"' . get_the_ID() . '"', // Explanation for why we use the '""': section 9, nos. 42, 17:00mins
                 ]
             ],
         ]);
