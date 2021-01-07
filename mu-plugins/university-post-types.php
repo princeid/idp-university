@@ -23,6 +23,8 @@ function university_post_types() {
 
     // Event Post Type
     register_post_type('event', [
+        'capability_type' => 'event', // creates new unique capabilities for 'event' post type when granting user roles and permisssions
+        'map_meta_cap' => true, // goes with the capability_type above
         'show_in_rest' => true,
         'supports' => ['title', 'editor', 'excerpt'],
         'rewrite' => ['slug' => 'events'],
@@ -73,6 +75,47 @@ function university_post_types() {
         ],
         'menu_icon' => 'dashicons-welcome-learn-more'
     ]);
+
+
+        // Note Post Type
+        register_post_type('note', [
+            'capability_type' => 'note',
+            'map_meta_cap' => true,
+            'show_in_rest' => true,
+            'supports' => ['title', 'editor'],
+            'public' => false, // Hides the posttype in the admin dashboard but makes the note private
+            'show_ui' => true, // Shows the posttype in the admin dashboard
+            'labels' => [
+                'name' => 'Notes',
+                'add_new_item' => 'Add New Note',
+                'edit_item' => 'Edit Note',
+                'all_items' => 'All Notes',
+                'singular_name' => 'Note'
+            ],
+            'menu_icon' => 'dashicons-welcome-write-blog'
+        ]);
+
+        
+        // Like Post Type
+        
+        /** When you want to implement custom restrictions and logic it is better not to use the built-in API endpoint
+         * but rather create your own custom endpoint.
+         */
+        register_post_type('like', [
+            'supports' => ['title'],
+            'public' => false, // Hides the posttype in the admin dashboard but makes the note private
+            'show_ui' => true, // Shows the posttype in the admin dashboard
+            'labels' => [
+                'name' => 'Likes',
+                'add_new_item' => 'Add New Like',
+                'edit_item' => 'Edit Like',
+                'all_items' => 'All Likes',
+                'singular_name' => 'Like'
+            ],
+            'menu_icon' => 'dashicons-heart'
+        ]);
+
+
 }
 
 add_action('init', 'university_post_types');

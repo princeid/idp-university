@@ -77,7 +77,8 @@
   font-size: 1.15rem;
   padding: 7px;
   border: 1px solid transparent;
-  height: 175px;
+  /* I changed the line below from 175px to 90px */
+  height: 90px; 
   outline: none;
 }
 

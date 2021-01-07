@@ -4,7 +4,7 @@
 
  function universityRegisterSearch() {
      register_rest_route('university/v1', 'search', [
-         'methods' => WP_REST_SERVER::READABLE, // Substitutes for 'GET' http method
+         'methods' => WP_REST_SERVER::READABLE, // Substitutes for 'GET' http method. 'methods' mean the type of HTTP request that this route is responsible for 
          'callback' => 'universitySearchResults'
      ]);
 

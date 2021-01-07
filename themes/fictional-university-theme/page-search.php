@@ -62,12 +62,7 @@ while (have_posts()) {
 
 
     <div class="generic-content">
-        <!-- esc_url() improves security -->
-        <form method="get" action="<?php echo esc_url(site_url('/')); ?>">
-            <!-- lower case "s" is how wordpress identifies a search field -->
-            <input type="search" name="s"> 
-            <input type="submit" value="Search">
-        </form>
+        <?php get_search_form(); ?>
     </div>
 
 </div>
