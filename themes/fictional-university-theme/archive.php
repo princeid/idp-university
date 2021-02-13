@@ -1,5 +1,5 @@
 <?php get_header(); 
-pageBanner([
+page_banner([
     'title' => get_the_archive_title(),
     'subtitle' => get_the_archive_description()
 ]);

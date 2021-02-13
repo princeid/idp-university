@@ -1,5 +1,5 @@
 <?php get_header(); 
-pageBanner([
+page_banner([
     'title' => 'Search Results',
     'subtitle' => 'You searched for &ldquo;' . esc_html(get_search_query(false)) . '&rdquo;'
 ]);

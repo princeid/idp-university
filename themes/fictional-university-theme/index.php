@@ -1,7 +1,7 @@
 <?php get_header(); 
-pageBanner([
-    'title' => 'Welcome to our blog',
-    'subtitle' => 'Keep up with our latest news.'
+page_banner([
+    // 'title' => 'Welcome to our blog',
+    // 'subtitle' => 'Keep up with our latest news.'
 ]);
 ?>
 

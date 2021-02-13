@@ -62,7 +62,7 @@ function university_post_types() {
     // Professor Post Type
     register_post_type('professor', [
         'show_in_rest' => true,
-        'supports' => ['title', 'editor', 'thumbnail'],
+        'supports' => ['title', 'editor', 'thumbnail'], // removed title to use my professor custom block
         // 'rewrite' => ['slug' => 'professors'], // No need to rewrite the slug since we won't be needing professor archive.
         // 'has_archive' => true,  // No professor archive. There won't be a nav-menu-item for professor in the header
         'public' => true,

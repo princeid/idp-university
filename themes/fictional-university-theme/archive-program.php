@@ -1,5 +1,5 @@
 <?php get_header();
-pageBanner([
+page_banner([
     'title' => 'All Programs',
     'subtitle' => "A collection of our programs. Have a look around."
 ]); 

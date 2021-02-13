@@ -1,5 +1,5 @@
 <?php get_header();
-pageBanner([
+page_banner([
     'title' => 'All Events',
     'subtitle' => "There's an event for everyone"
 ]);

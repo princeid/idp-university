@@ -3,8 +3,10 @@
 get_header();
 
 while (have_posts()) {
-    the_post(); 
-    pageBanner();
+    the_post();
+    // $title = set_professor_title();
+    page_banner();
+    
     ?>
 
     <div class="container container--narrow page-section">

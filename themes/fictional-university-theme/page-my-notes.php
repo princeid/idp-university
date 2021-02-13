@@ -9,7 +9,7 @@ get_header();
 
 while(have_posts()) {
     the_post(); 
-    pageBanner([
+    page_banner([
         // 'title' => 'About Fictional University',
         // 'subtitle' => 'You define your life one step at a time. This is a test subtitle',
         // 'photo' => 'https://source.unsplash.com/random/1920x1080/?wallpaper,landscape' // "source" generates random photos from unsplash

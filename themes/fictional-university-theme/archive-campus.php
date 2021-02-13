@@ -1,5 +1,5 @@
 <?php get_header();
-pageBanner([
+page_banner([
     'title' => 'Our Campuses',
     'subtitle' => "We have beautiful campuses in the heart of town."
 ]); 

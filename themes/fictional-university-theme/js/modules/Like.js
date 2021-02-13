@@ -7,60 +7,60 @@ class Like {
 
     // Events
     events() {
-        $(".like-box").on("click", this.ourClickDispatcher.bind(this));
+        $( ".like-box" ).on( "click", this.ourClickDispatcher.bind( this ) );
     }
 
     // Methods
     ourClickDispatcher(e) {
-        let currentLikeBox = $(e.target).closest(".like-box");
+        let currentLikeBox = $( e.target ).closest( ".like-box" );
 
-        if(currentLikeBox.attr('data-exists') == 'yes') {
-            this.deleteLike(currentLikeBox);
+        if( currentLikeBox.attr( 'data-exists' ) == 'yes' ) {
+            this.deleteLike( currentLikeBox );
         } else {
-            this.createLike(currentLikeBox);
+            this.createLike( currentLikeBox );
         }
     }
 
-    createLike(currentLikeBox) {
+    createLike( currentLikeBox ) {
         $.ajax({
-            beforeSend: (xhr) => {
-                xhr.setRequestHeader('X-WP-Nonce', universityData.nonce); // WordPress will be using the exact X-WP-Nonce
+            beforeSend: ( xhr ) => {
+                xhr.setRequestHeader( 'X-WP-Nonce', universityData.nonce ); // WordPress will be using the exact X-WP-Nonce
             },
             url: universityData.root_url + '/wp-json/university/v1/manageLike',
             type: 'POST',
-            data: {'professorId': currentLikeBox.data('professor')}, // same as: /wp-json/university/v1/manageLike?professorId=xxx, in the url attribute above
-            success: (response) => {
-                currentLikeBox.attr('data-exists', 'yes');
-                let likeCount = parseInt(currentLikeBox.find(".like-count").html(), 10);
+            data: {'professorId': currentLikeBox.data( 'professor' )}, // same as: /wp-json/university/v1/manageLike?professorId=xxx, in the url attribute above
+            success: ( response ) => {
+                currentLikeBox.attr( 'data-exists', 'yes' );
+                let likeCount = parseInt( currentLikeBox.find(".like-count").html(), 10 );
                 likeCount++;
-                currentLikeBox.find(".like-count").html(likeCount);
-                currentLikeBox.attr("data-like", response); // response contains the ID number of that new like post
-                console.log(response);
+                currentLikeBox.find( ".like-count" ).html(likeCount);
+                currentLikeBox.attr( "data-like", response ); // response contains the ID number of that new like post
+                console.log( response );
             },
-            error: (response) => {
-                console.log(response);
+            error: ( response ) => {
+                console.log( response );
             }
         });
     }
 
-    deleteLike(currentLikeBox) {
+    deleteLike( currentLikeBox ) {
         $.ajax({
-            beforeSend: (xhr) => {
+            beforeSend: ( xhr ) => {
                 xhr.setRequestHeader('X-WP-Nonce', universityData.nonce); // WordPress will be using the exact X-WP-Nonce
             },
             url: universityData.root_url + '/wp-json/university/v1/manageLike',
             data: {'like': currentLikeBox.attr('data-like')},
             type: 'DELETE',
-            success: (response) => {
+            success: ( response ) => {
                 currentLikeBox.attr('data-exists', 'no');
-                let likeCount = parseInt(currentLikeBox.find(".like-count").html(), 10);
+                let likeCount = parseInt( currentLikeBox.find(".like-count").html(), 10 );
                 likeCount--;
-                currentLikeBox.find(".like-count").html(likeCount);
-                currentLikeBox.attr("data-like", ''); // response contains the ID number of that new like post
-                console.log(response);
+                currentLikeBox.find( ".like-count" ).html( likeCount );
+                currentLikeBox.attr( "data-like", '' ); // response contains the ID number of that new like post
+                console.log( response );
             },
-            error: (response) => {
-                console.log(response);
+            error: ( response ) => {
+                console.log( response );
             }
         });
     }

@@ -1,5 +1,5 @@
 <?php get_header(); 
-pageBanner([
+page_banner([
     'title' => 'Past Events',
     'subtitle' => 'A recap of our past events.'
 ]);

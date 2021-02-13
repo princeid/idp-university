@@ -3,7 +3,7 @@ get_header();
 
 while (have_posts()) {
     the_post(); 
-    pageBanner();
+    page_banner();
     ?>
 
     <div class="container container--narrow page-section">
